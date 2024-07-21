@@ -21,10 +21,10 @@ const Login = () => {
         email,
         password,
       });
-      if (res && res.data.success) {
+      if (res.data && res.data.success) {
         toast.success(res.data && res.data.message);
         setAuth({
-          ...auth,
+          // ...auth,
           user: res.data.user,
           token: res.data.token,
         });
@@ -47,6 +47,7 @@ const Login = () => {
           <div className="mb-3">
             <input
               type="email"
+              autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
