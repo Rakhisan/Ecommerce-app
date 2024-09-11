@@ -2,8 +2,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/node_modules/yargs
+node_modules/
+
+node_modules/yargs/
 
 /.pnp
 .pnp.js

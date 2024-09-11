@@ -31,15 +31,19 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use(express.static(path.join(__dirname, "./client/build")));
-
+//
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// Serve static files
-app.use("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// Serve index.html for all non-API routes
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"), (err) => {
+    if (err) {
+      res.status(404).send("404 Not Found");
+    }
+  });
 });
 
 //PORT
