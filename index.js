@@ -38,13 +38,13 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 // Serve index.html for all non-API routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"), (err) => {
-    if (err) {
-      res.status(404).send("404 Not Found");
-    }
-  });
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"), (err) => {
+//     if (err) {
+//       res.status(404).send("404 Not Found");
+//     }
+//   });
+// });
 
 //PORT
 const PORT = process.env.PORT || 8080;
