@@ -10,21 +10,20 @@ const CartPage = () => {
   const [cart, setCart] = useCart();
   const navigate = useNavigate();
 
-  //total price
+  // Calculate total price
   const totalPrice = () => {
     try {
-      let total = 0;
-      cart?.map((item) => {
-        total = total + item.price;
-      });
+      const total = cart?.reduce((acc, item) => acc + item.price, 0);
       return total.toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
       });
     } catch (error) {
       console.log(error);
+      return "$0.00";
     }
   };
+
   //detele item
   const removeCartItem = (pid) => {
     try {

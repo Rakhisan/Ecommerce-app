@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
@@ -20,8 +20,8 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  //get all cat
-  const getAllCategory = async () => {
+  // Get all categories
+  const getAllCategory = useCallback(async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
       if (data?.success) {
@@ -30,14 +30,20 @@ const HomePage = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  useEffect(() => {
-    getAllCategory();
-    getTotal();
   }, []);
-  //get products
-  const getAllProducts = async () => {
+
+  // Get total product count
+  const getTotal = useCallback(async () => {
+    try {
+      const { data } = await axios.get("/api/v1/product/product-count");
+      setTotal(data?.total);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  // Get all products
+  const getAllProducts = useCallback(async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
@@ -47,55 +53,23 @@ const HomePage = () => {
       setLoading(false);
       console.log(error);
     }
-  };
-
-  //getTOtal COunt
-  const getTotal = async () => {
-    try {
-      const { data } = await axios.get("/api/v1/product/product-count");
-      setTotal(data?.total);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    if (page === 1) return;
-    loadMore();
   }, [page]);
-  //load more
-  const loadMore = async () => {
+
+  // Load more products
+  const loadMore = useCallback(async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
       setLoading(false);
-      setProducts([...products, ...data?.products]);
+      setProducts((prevProducts) => [...prevProducts, ...data?.products]);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      console.log(error);
     }
-  };
+  }, [page]);
 
-  // filter by cat
-  const handleFilter = (value, id) => {
-    let all = [...checked];
-    if (value) {
-      all.push(id);
-    } else {
-      all = all.filter((c) => c !== id);
-    }
-    setChecked(all);
-  };
-  useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
-
-  useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
-  }, [checked, radio]);
-
-  //get filterd product
-  const filterProduct = async () => {
+  // Filter products by category and price
+  const filterProduct = useCallback(async () => {
     try {
       const { data } = await axios.post("/api/v1/product/product-filters", {
         checked,
@@ -105,7 +79,41 @@ const HomePage = () => {
     } catch (error) {
       console.log(error);
     }
+  }, [checked, radio]);
+
+  // Handle category filtering
+  const handleFilter = (value, id) => {
+    let all = [...checked];
+    if (value) {
+      all.push(id);
+    } else {
+      all = all.filter((c) => c !== id);
+    }
+    setChecked(all);
   };
+
+  // Initial loading of categories and product count
+  useEffect(() => {
+    getAllCategory();
+    getTotal();
+  }, [getAllCategory, getTotal]);
+
+  // Load products when filters are reset
+  useEffect(() => {
+    if (!checked.length && !radio.length) getAllProducts();
+  }, [checked.length, radio.length, getAllProducts]);
+
+  // Load filtered products when filters change
+  useEffect(() => {
+    if (checked.length || radio.length) filterProduct();
+  }, [checked, radio, filterProduct]);
+
+  // Load more products when the page changes
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page, loadMore]);
+
   return (
     <Layout title={"All Products - Best offers "}>
       {/* banner image */}
@@ -143,7 +151,11 @@ const HomePage = () => {
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                setChecked([]);
+                setRadio([]);
+                window.location.reload();
+              }}
             >
               RESET FILTERS
             </button>

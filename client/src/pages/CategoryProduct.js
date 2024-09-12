@@ -8,10 +8,6 @@ const CategoryProduct = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
-
-  useEffect(() => {
-    if (params?.slug) getProductsByCat();
-  }, [params?.slug]);
   const getProductsByCat = async () => {
     try {
       const { data } = await axios.get(
@@ -23,6 +19,10 @@ const CategoryProduct = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (params?.slug) getProductsByCat();
+  }, [params?.slug, getProductsByCat]); // Include getProductsByCat here
 
   return (
     <Layout>

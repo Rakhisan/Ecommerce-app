@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -10,12 +10,8 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  //initalp details
-  useEffect(() => {
-    if (params?.slug) getProduct();
-  }, [params?.slug]);
-  //getProduct
-  const getProduct = async () => {
+  // Get product details
+  const getProduct = useCallback(async () => {
     try {
       const { data } = await axios.get(
         `/api/v1/product/get-product/${params.slug}`
@@ -25,9 +21,10 @@ const ProductDetails = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-  //get similar product
-  const getSimilarProduct = async (pid, cid) => {
+  }, [params.slug]);
+
+  // Get similar products
+  const getSimilarProduct = useCallback(async (pid, cid) => {
     try {
       const { data } = await axios.get(
         `/api/v1/product/related-product/${pid}/${cid}`
@@ -36,7 +33,13 @@ const ProductDetails = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
+
+  // Initial product details load
+  useEffect(() => {
+    if (params?.slug) getProduct();
+  }, [params?.slug, getProduct]);
+
   return (
     <Layout>
       <div className="row container product-details">
@@ -62,7 +65,7 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1">ADD TO CART</button>
+          <button className="btn btn-secondary ms-1">ADD TO CART</button>
         </div>
       </div>
       <hr />
