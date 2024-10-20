@@ -8,7 +8,11 @@ const CategoryProduct = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  const getProductsByCat = async () => {
+
+  useEffect(() => {
+    if (params?.slug) getPrductsByCat();
+  }, [params?.slug]);
+  const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
         `/api/v1/product/product-category/${params.slug}`
@@ -19,10 +23,6 @@ const CategoryProduct = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    if (params?.slug) getProductsByCat();
-  }, [params?.slug, getProductsByCat]); // Include getProductsByCat here
 
   return (
     <Layout>
@@ -60,36 +60,36 @@ const CategoryProduct = () => {
                         More Details
                       </button>
                       {/* <button
-                  className="btn btn-dark ms-1"
-                  onClick={() => {
-                    setCart([...cart, p]);
-                    localStorage.setItem(
-                      "cart",
-                      JSON.stringify([...cart, p])
-                    );
-                    toast.success("Item Added to cart");
-                  }}
-                >
-                  ADD TO CART
-                </button> */}
+                    className="btn btn-dark ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                  >
+                    ADD TO CART
+                  </button> */}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             {/* <div className="m-2 p-3">
-          {products && products.length < total && (
-            <button
-              className="btn btn-warning"
-              onClick={(e) => {
-                e.preventDefault();
-                setPage(page + 1);
-              }}
-            >
-              {loading ? "Loading ..." : "Loadmore"}
-            </button>
-          )}
-        </div> */}
+            {products && products.length < total && (
+              <button
+                className="btn btn-warning"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "Loading ..." : "Loadmore"}
+              </button>
+            )}
+          </div> */}
           </div>
         </div>
       </div>
