@@ -1,4 +1,4 @@
-# ECCOMERCE WEB-APP
+# e-COMMERCE WEB-APP
 
 ![Screenshot 2024-10-23 160136](https://github.com/user-attachments/assets/a3138b36-23ae-42a2-b326-8830f5ecbcb3) ![Screenshot 2024-10-23 160159](https://github.com/user-attachments/assets/1fe3fc09-cdb7-4e0a-b790-363da2f9a5d8)
 
