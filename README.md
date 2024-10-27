@@ -1,4 +1,4 @@
-## e-COMMERCE WEB APP
+## e-COMMERCE WEB APP 🛒🛍️
 
 ![Screenshot 2024-10-23 160136](https://github.com/user-attachments/assets/a3138b36-23ae-42a2-b326-8830f5ecbcb3)
 
