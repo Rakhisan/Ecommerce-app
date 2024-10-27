@@ -1,27 +1,14 @@
 ## e-COMMERCE WEB APP 🛒🛍️
 
-![Screenshot 2024-10-23 160136](https://github.com/user-attachments/assets/a3138b36-23ae-42a2-b326-8830f5ecbcb3)
+![Untitled design (3)](https://github.com/user-attachments/assets/6107fecf-a8ae-48f6-ba12-195d51491bf4)
 
-![Screenshot 2024-10-23 160159](https://github.com/user-attachments/assets/1fe3fc09-cdb7-4e0a-b790-363da2f9a5d8)
+![Untitled design (2)](https://github.com/user-attachments/assets/bfd088a1-ccc6-4416-8d7b-35d04fbd4dea)
 
-![Screenshot 2024-10-26 123131](https://github.com/user-attachments/assets/f3ccc0ad-70de-4b86-bfc3-a8eddcd984b4) 
+![Untitled design (4)](https://github.com/user-attachments/assets/d88a2abd-5fd6-4166-b059-982a2484621e)
 
-![Screenshot 2024-10-26 123115](https://github.com/user-attachments/assets/74fabd58-9e54-4100-9117-bb33c0d7eba6)
+![Untitled design (5)](https://github.com/user-attachments/assets/8a15b759-9c1e-4fd7-ada9-7f106c4ec372)
 
-![Screenshot 2024-10-23 163019](https://github.com/user-attachments/assets/85b3a0c4-ad2f-4baf-bbff-32143f65d16c) 
-
-![Screenshot 2024-10-23 163121](https://github.com/user-attachments/assets/0074edb6-0483-4c6f-8e19-6c7ebd262663)
-
-![Screenshot 2024-10-23 163144](https://github.com/user-attachments/assets/b498399b-f259-4e71-bc68-ed241b0a0a3d) 
-
-![Screenshot 2024-10-23 163002](https://github.com/user-attachments/assets/f17812d5-ab60-46df-80ad-34a53418ab51)
-
-![Screenshot 2024-10-23 160059](https://github.com/user-attachments/assets/a91b8e15-9e7c-472c-b7d0-2324eac92fd0) 
-
-![Screenshot 2024-10-23 162857](https://github.com/user-attachments/assets/26380da5-90d4-4c6f-bd55-0724924a843d) 
-
-![Screenshot 2024-10-23 163040](https://github.com/user-attachments/assets/50f14cbe-130a-4582-b452-e5cf35a564c4)
-
+![Untitled design (6)](https://github.com/user-attachments/assets/45c4d668-b28f-4fd5-acf9-0d0c2ac51575)
 
 ## Overview
 
