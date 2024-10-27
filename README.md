@@ -1,4 +1,4 @@
-# e-COMMERCE WEB-APP
+# e-COMMERCE WEB-APP 🛒🛒
 
 ![Screenshot 2024-10-23 160136](https://github.com/user-attachments/assets/a3138b36-23ae-42a2-b326-8830f5ecbcb3)
 
@@ -115,3 +115,6 @@ Documentation: [Link to project documentation, if available]
 Demo: [Link to a live demo of the e-commerce website, if available]
 Known Issues: [List any known issues or limitations]
 Roadmap: [Outline future development plans]
+
+---
+### Thanks for visit... 😊😊😊
