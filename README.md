@@ -1,5 +1,15 @@
 ## e-COMMERCE WEB APP 🛒🛍️
 
+
+
+<p align="center">
+  <b style="color: blue;  ">Visitor count</b>
+  <br>
+  <a style="" href="https://github.com/Rakhisan">
+  <img src="https://profile-counter.glitch.me/Ecommerce-app/count.svg" />
+  </a>
+</p>
+
 ![Untitled design (3)](https://github.com/user-attachments/assets/6107fecf-a8ae-48f6-ba12-195d51491bf4)
 
 ![Untitled design (2)](https://github.com/user-attachments/assets/bfd088a1-ccc6-4416-8d7b-35d04fbd4dea)
